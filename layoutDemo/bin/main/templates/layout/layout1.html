@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<th:block th:fragment="mainContent(main)">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<header>
+		<th:blcok th:replace="${main}">
+		<!--  메인 섹션이 삽입되는 영역입니다 -->
+			
+		</header>
+		<footer>
+			<h1>푸터</h1>
+			<div class="wrap">
+				<div th:replace="~{fragments/footer}" ></div>
+			</div>
+		</footer>
+	
+	</body>
+</html>
