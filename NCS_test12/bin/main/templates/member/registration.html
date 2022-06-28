@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:insert="common/common::head" />
+		<link rel="stylesheet" href="/css/reg.css">
+	</head>
+	<body>
+		<main>
+			<h1>회원가입</h1>
+			<div class="wrap member-size">
+				<section id="logo">
+					<h1>로고영역</h1>
+					<div class="wrap">
+						<a href="/">LOGO</a>
+					</div>
+				</section>
+				<section id="member-form">
+					<h1>회원가입 폼</h1>
+					<div class="wrap">
+						<form action="/mem/reg" method="post" >
+							<ul>
+								<li>
+									<input type="text" name="id" placeholder="아이디 입력">
+								</li>
+								<li>
+									<input type="password" name="pw" placeholder="비밀번호 입력">
+								</li>
+								<li>
+									<input type="text" name="name" placeholder="이름 입력">
+								</li>
+								<li>
+									<button type="submit">회원가입</button>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>

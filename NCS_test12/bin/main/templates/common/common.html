@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<title>NCS-test12</title>
+	<link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+	<header th:fragment="header">
+		<h1>헤더섹션</h1>
+		<div class="wrap view-size flex between">
+			<!-- 메뉴영역 HTML -->
+			<nav id="menu">
+				<h1>메뉴</h1>
+				<div class="wrap">
+					<ul class="flex">
+						<li><a href="/">HOME</a></li>
+						<li><a href="/board/">게시판테스트</a></li>
+						<li><a href="#">메뉴2</a></li>
+						<li><a href="#">메뉴3</a></li>
+					</ul>
+				</div>
+			</nav>
+			<section id="user-menu">
+				<h1>회원메뉴</h1>
+				<div class="wrap">
+					<ul class="flex" th:unless="${session.logInfo}">
+						<li>
+							<a href="/mem/login">로그인</a>
+						</li>
+						<li>
+							<a href="/mem/reg">회원가입</a>
+						</li>
+					</ul>
+					<!-- session에서 logInfo 정보가 존재하면 활성화 -->
+					<ul th:if="${session.logInfo}">
+						<li>
+							<span>[[${session.logInfo.name}]] 님!</span>
+							<a href="/mem/logout">로그아웃</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</header>
+</body>
+</html>

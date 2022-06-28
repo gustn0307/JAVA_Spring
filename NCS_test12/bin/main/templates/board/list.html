@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- css영역을 common/common.html에서 insert 해서 사용할께요 -->
+	<th:block th:insert="common/common::head" />
+	<link rel="stylesheet" href="/css/board/list.css">
+</head>
+<body>
+	<!-- 헤더섹션은 common/common.html에서 insert 해서 사용할께요 -->
+	<th:block th:insert="common/common::header" />
+	<main>
+		<h1>게시글 리스트</h1>
+		<div class="wrap view-size">
+			<div>
+				<p class="ptit">게시글</p>
+			</div>
+			<ul class="flex list">
+				<li>no</li>
+				<li>제목</li>
+				<li>조회수</li>
+				<li>작성자</li>
+				<li>작성일</li>
+			</ul>
+			<ol class="flex list" th:each="dto : ${list}">
+				<li th:text="${dto.no}">no</li>
+				<li><a href="#">[[${dto.subject}]]</a></li>
+				<li>[[${dto.readCount}]]</li>
+				<li>[[${dto.writer}]]</li>
+				<li>[[${dto.createdDate.toLocalDate}]]</li>
+			</ol>
+			
+		</div>
+	</main>
+</body>
+</html>

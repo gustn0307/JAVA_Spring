@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:insert="common/common::head" />
+		<link rel="stylesheet" href="/css/login.css">
+	</head>
+	<body>
+		<main>
+			<h1>회원가입</h1>
+			<div class="wrap member-size">
+				<section id="logo">
+					<h1>로고영역</h1>
+					<div class="wrap">
+						<a href="/">LOGO</a>
+					</div>
+				</section>
+				<section id="login-form">
+					<h1>로그인 폼</h1>
+					<div class="wrap">
+						<div class="msg">
+							<!-- ///Model객체에서 회원가입 성공시 메세지 처리 -->
+							<p class="success" th:if="${success}" th:text="${success}">회원가입 성공시 메세지</p>
+							<!-- ///Model객체에서 로그인실패 메세지 처리 -->
+							<p class="error" th:if="${error}" >로그인 실패시 메세지</p>
+						</div>
+						<form action="/mem/login" method="post"  >
+							<ul>
+								<li>
+									<input type="text" name="id" placeholder="아이디 입력">
+								</li>
+								<li>
+									<input type="password" name="pw" placeholder="비밀번호 입력">
+								</li>
+								<li>
+									<button type="submit">로그인</button>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>

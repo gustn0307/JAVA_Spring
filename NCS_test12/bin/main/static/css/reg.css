@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+main>.wrap{
+	margin-top: 40px;
+	padding: 50px 30px;
+	border: 1px solid #eaeaea;
+}
+#logo>.wrap{
+	text-align: center;
+}
+
+#logo>.wrap a{
+	font-size: 48px;
+	font-weight: bold;
+}
+#member-form{
+	margin-top: 40px;
+}
+#member-form>.wrap form ul li{
+	margin: 10px 0;
+}
+#member-form>.wrap form ul li input{
+	padding: 0.5em 1em;
+	width: 100%;
+}
+#member-form>.wrap form ul li button{
+	padding: 0.5em 1em;
+	width: 100%;
+}

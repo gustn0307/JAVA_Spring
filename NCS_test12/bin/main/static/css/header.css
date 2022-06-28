@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+header{
+	border-bottom:1px solid #a9a9a9; 
+}
+#menu>.wrap ul li a{
+	padding: 1em;
+	display: inline-block;
+}
+
+
+#user-menu>.wrap ul li a{
+	padding: 1em;
+	display: inline-block;
+}
