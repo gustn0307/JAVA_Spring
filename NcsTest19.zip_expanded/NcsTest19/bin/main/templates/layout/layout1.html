@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:fragment="mainContent(head,main)">
+	<head>
+    	<meta charset="UTF-8">
+    	<link rel="shortcut icon" href="/images/cd_icon.ico">
+		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/css/commons.css">
+		<link rel="stylesheet" href="/css/header.css">
+		
+		<th:block th:insert="${head}">
+			<!-- page에서 설정한 head가 삽입되는 영역입니다 -->
+		</th:block>
+	</head>
+	<body>
+		<header>
+			<h1>헤더</h1>
+			<div class="wrap view-size flex between">
+				<section id="top-logo">
+					<h1>로고</h1>
+					<div class="wrap">
+						<a href="/" >NCSTEST09</a>
+					</div>
+				</section>
+				<nav id="top-menu">
+					<h1>상단메뉴</h1>
+					<div class="wrap">
+						<ul class = "flex menu-list">
+							<li>
+								<dl class="menu">
+									<dt>
+										<a href="#">회사소개</a>
+									</dt>
+									<dd class="sub-menu flex center">
+										<ol class="flex">
+											<li><a href="#">인사말</a></li>
+											<li><a href="#">회사소개1</a></li>
+											<li><a href="#">회사소개2</a></li>
+										</ol>
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl class="menu">
+									<dt>
+										<a href="#">상품안내</a>
+									</dt>
+									<dd class="sub-menu flex center">
+										<ol class="flex">
+											<li><a href="#">상품1</a></li>
+											<li><a href="#">상품2</a></li>
+											<li><a href="#">상품3</a></li>
+										</ol>
+									</dd>
+								</dl>
+							</li>
+							<li>
+								<dl class="menu">
+									<dt>
+										<a href="#">개발자센터</a>
+									</dt>
+									<dd class="sub-menu flex center">
+										<ol class="flex">
+											<li><a href="#">게시글</a></li>
+											<li><a href="#">동영상보기</a></li>
+										</ol>
+									</dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<nav id="user-menu">
+					<h1>유저메뉴</h1>
+					<div class="wrap">
+						<ul class = "flex end">
+							<li sec:authorize="isAnonymous()"><!-- 로그인 sec속성적용 -->
+								<a href="/sign/signin">로그인</a>
+							</li>
+							<li sec:authorize="isAuthenticated()"><!-- 로그아웃 sec속성적용 -->
+								<a href="/logout" >
+									<span sec:authentication="principal.name">이름이나와요</span>
+									<button type="submit">로그아웃</button>
+								</a>
+								
+							</li>
+							<li sec:authorize="hasRole('ROLE_ADMIN')"><!-- 관리자일때 보이도록 sec속성적용 -->
+								<a href="#">관리자페이지</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<th:block th:replace="${main}">
+			<!-- 메인섹션이 삽입되는 영역입니다 -->
+		</th:block>
+		<footer>
+			<h1>푸터</h1>
+			<div class="wrap view-size">
+				<section>
+					<h1>회사정보</h1>
+					<div class="wrap">
+						<ul>
+							<li>
+								<dl class = "flex">
+									<dt>회사명</dt>
+									<dd>그린컴</dd>
+								</dl>
+							</li>
+							<li>
+								<dl class = "flex">
+									<dt>대표</dt>
+									<dd>노그린</dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</footer>
+	</body>
+</th:block>	
+</html>

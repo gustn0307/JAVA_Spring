@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+
+
+main>.wrap{
+	width: 400px;
+	margin: 0 auto;
+}
+
+main>.wrap .home a{
+	font-size: 32px;
+	padding: 1em;
+	font-weight: 700;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+} 
+
+main>.wrap form p{
+	margin: 1em 0;
+}
+main>.wrap form p>*{
+	width: 100%;
+	padding: 1em;
+}
+main>.wrap .link{
+	margin-top: 20px;
+}
+main>.wrap .link button{
+	display: inline-block;
+	width: 100%;
+	padding: 1em;
+	background-color: #416200;
+	color: #fff;
+}
