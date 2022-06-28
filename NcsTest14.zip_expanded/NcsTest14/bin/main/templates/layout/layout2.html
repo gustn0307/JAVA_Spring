@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:fragment="adminContent(main)">
+	<head>
+    	<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="/css/commons.css">
+		<link rel="stylesheet" href="/css/left.css">
+	</head>
+	<body class="flex">
+		<section id="left-menu">
+			<h1>좌측메뉴</h1>
+			<div class="wrap">
+				<ul class="menu-list">
+					<li class="home">
+						<a href="/"> HOME</a>
+					</li>
+					<li>
+						<dl>
+							<dt>상품</dt>
+							<dd>
+								<ol>
+									<li>리스트</li>
+									<li>등록</li>
+								</ol>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>비주얼이미지</dt>
+							<dd>
+								<ol>
+									<li>리스트</li>
+									<li>등록</li>
+								</ol>
+							</dd>
+						</dl>
+					</li>
+					
+				</ul>
+			</div>
+		</section>
+		<th:block th:replace="${main}">
+			<!-- 메인섹션이 삽입되는 영역입니다 -->
+		</th:block>
+	</body>
+</th:block>
+</html>

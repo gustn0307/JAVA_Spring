@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!-- //layout2를 적용할 fragment adminContent(main)적용하세요 -->
+<th:block th:replace="~{layout/layout2 :: adminContent(~{this::main})}">
+		<main th:fragment="main">
+			<h1>메인</h1>
+			<div class="wrap admin">
+				<p>강현수 - 관리자 페이지 입니다.</p>
+			</div>
+		</main>
+<!-- 끝영역		 -->
+</html>

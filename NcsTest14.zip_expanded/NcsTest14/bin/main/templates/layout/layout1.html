@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:fragment="mainContent(main)">
+	<head>
+    	<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="/css/commons.css">
+		<link rel="stylesheet" href="/css/header.css">
+	</head>
+	<body>
+		<header>
+			<h1>헤더</h1>
+			<div class="wrap view-size flex between">
+				<section id="top-logo">
+					<h1>로고</h1>
+					<div class="wrap">
+						<a href="/">HOME</a>
+					</div>
+				</section>
+				<nav id="top-menu">
+					<h1>상단메뉴</h1>
+					<div class="wrap">
+						<ul class = "flex">
+							<li>메뉴1</li>
+							<li>메뉴2</li>
+							<li>메뉴3</li>
+						</ul>
+					</div>
+				</nav>
+				<nav id="user-menu">
+					<h1>유저메뉴</h1>
+					<div class="wrap">
+						<ul class = "flex">
+							<li sec:authorize="isAnonymous()"><!-- 로그인 sec속성적용 -->
+								<a href="/log/page">로그인</a>
+							</li>
+							<li sec:authorize="isAuthenticated()"><!-- 로그아웃 sec속성적용 -->
+								<form action="/logout" method="post">
+									<input type="hidden" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}"/>
+									<span sec:authentication="name">아이디(이메일)가표기됩니다.</span>
+									<button type="submit">로그아웃</button>
+								</form>
+								
+							</li>
+							<li sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 관리자일때 보이도록 sec속성적용 -->
+								<a href="/admin">관리자페이지</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<th:block th:replace="${main}">
+			<!-- 메인섹션이 삽입되는 영역입니다 -->
+		</th:block>
+		<footer>
+			<h1>푸터</h1>
+			<div class="wrap view-size">
+				<section>
+					<h1>회사정보</h1>
+					<div class="wrap">
+						<ul>
+							<li>
+								<dl class = "flex">
+									<dt>회사명</dt>
+									<dd>그린컴</dd>
+								</dl>
+							</li>
+							<li>
+								<dl class = "flex">
+									<dt>대표</dt>
+									<dd>노그린</dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</footer>
+	</body>
+</th:block>	
+</html>
