@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+    	<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="/css/commons.css">
+		<link rel="stylesheet" href="/css/header.css">
+	</head>
+	<body>
+		<header th:replace="~{/index::header}"></header>
+		<main>
+			<h1>게시글 메인 컨텐츠</h1>
+			<div class="wrap view-size">
+				<p class="page-tit">게시글</p>
+				<a href="/board/write">글쓰기</a>
+				<ul class="flex">
+					<li>no</li>
+					<li>제목</li>
+					<li>조회수</li>
+					<li>작성자</li>
+					<li>작성일</li>
+				</ul>
+				
+				<ol class="flex"  th:each="dto:${list}">
+					<li>no</li>
+					<li>제목</li>
+					<li>조회수</li>
+					<li>작성자</li>
+					<li>작성일</li>
+				</ol>
+				<ol class="flex"  th:unless="${list}">
+					<li>게시글이 존재하지 않습니다.</li>
+				</ol>
+			</div>
+		</main>
+		
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+    	<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="/css/commons.css">
+		<link rel="stylesheet" href="/css/header.css">
+	</head>
+	<body>
+				
+		<main>
+			<h1>게시글 메인 컨텐츠</h1>
+			<div class="wrap view-size">
+				<p class="page-tit">
+					<a href="/">GREEN</a>
+				</p>
+				<form action="/login" method="post">
+					<ul>
+						<li><input type="text" placeholder="이메일" name="email"></li>
+						<li><input type="password" placeholder="비밀번호" name="password"> </li>
+						<li><input type="submit" value="로그인"></li>
+					</ul>
+				</form>
+			</div>
+		</main>
+		
+	</body>
+</html>

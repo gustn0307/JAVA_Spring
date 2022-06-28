@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+    	<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="/css/commons.css">
+		<link rel="stylesheet" href="/css/header.css">
+	</head>
+	<body>
+		<header th:fragment="header">
+			<h1>상단영역</h1>
+			<div class="wrap view-size flex between">
+				<section id="top-logo" class="flex column center">
+					<h1>로고</h1>
+					<div class="wrap">
+						<a href="/">GREEN</a>
+					</div>
+				</section>
+				<nav id="top-menu" class="flex column center">
+					<h1>메뉴</h1>
+					<div class="wrap">
+						<ul class="flex">
+							<li>
+								<a href="/boards">게시글</a>
+							</li>
+							<li>
+								<a href="#">메뉴2</a>
+							</li>
+							<li>
+								<a href="#">메뉴3</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<section id="user-menu" class="flex column center">
+					<h1>사용자메뉴</h1>
+					<div class="wrap">
+						<ul class="flex">
+							<li sec:authorize="isAnonymous()">
+								<a href="/login">로그인</a>
+							</li>
+							<li sec:authorize="isAuthenticated()">
+								<span sec:authentication="principal.name"></span>
+								<a href="/logout">로그아웃</a>
+							</li>
+							<li sec:authorize="hasRole('ROLE_ADMIN')">
+								<a href="/admin">관리자페이지</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</header>
+		<main>
+			<h1>메인 컨텐츠</h1>
+			<div class="wrap view-size">
+				
+			</div>
+		</main>
+	</body>
+</html>
